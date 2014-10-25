@@ -1,2 +1,5 @@
- -# expected locals: draft, threading_repeats, treadling_repeats
- 
+.draft-preview-container{"ng_app" => "draftPreviewApp"}
+	.draft-controller{"ng-controller" => "DraftController" }
+		%ul
+			%li{"ng-repeat" => "treadle in draft.treadlings"}
+				.treadle {{treadle}}

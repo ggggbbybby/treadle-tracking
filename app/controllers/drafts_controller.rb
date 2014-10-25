@@ -4,6 +4,11 @@ class DraftsController < ApplicationController
 		@tieups = Tieup.all
 		@threadings = Threading.all
 		@treadlings = Treadling.all
+
+		respond_to do |format|
+			format.html
+			format.json { render json: @drafts}
+		end
 	end
 
 	def create

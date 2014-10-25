@@ -4,4 +4,5 @@
 	Threading: #{@draft.threading.andand.sequence}
 	Treadling: #{@draft.treadling.andand.sequence}
 
-= render :partial => :draft_preview, :locals => {:draft => @draft, :threading_repeats => 2, :treadling_repeats => 3}
+= render "draft_preview", :locals => {:draft => @draft, :threading_repeats => 2, :treadling_repeats => 3}
+

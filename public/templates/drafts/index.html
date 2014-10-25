@@ -1,0 +1,7 @@
+<!-- public/templates/drafts/index.html -->
+
+<a href="/#">index</a>
+<p> Hello from drafts/index.html </p>
+<ul ng-repeat="draft in drafts">
+  <li><a ng-click="viewDraft(draft.id)">{{ draft.draft_name }}</a></li>
+</ul>
