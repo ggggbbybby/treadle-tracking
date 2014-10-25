@@ -2,4 +2,12 @@
 	#{@drafts.size} current drafts
 .new-draft-form
 	= form_for :draft, :url => {:controller => 'drafts', :action => 'create'} do |f|
-		= label_tag :name, "Draft Name", :class => 'header_label' 
+		= f.label :draft_name
+		= f.text_field :draft_name
+		= f.label :tieup_id
+		= f.select :tieup_id, @tieups.map { |t| [t.sequence, t.id]}
+		= f.label :threading_id
+		= f.select :threading_id, @threadings.map { |t| [t.sequence, t.id]}
+		= f.label :treadling_id
+		= f.select :treadling_id, @treadlings.map { |t| [t.sequence, t.id]}
+		= f.submit

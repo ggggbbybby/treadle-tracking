@@ -1,0 +1,7 @@
+%p
+	#{@treadlings.size} Treadlings
+.new-tieup-form
+	= form_for :treadling, :url => {:controller => 'treadlings', :action => 'create'} do |f|
+		= f.label :sequence
+		= f.text_field :sequence
+		= f.submit

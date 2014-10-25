@@ -18,8 +18,33 @@ ActiveRecord::Schema.define(version: 20141022233743) do
 
   create_table "drafts", force: true do |t|
     t.string   "draft_name"
+    t.integer  "threading_id"
+    t.integer  "treadling_id"
+    t.integer  "tieup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "threadings", force: true do |t|
+    t.text     "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tieups", force: true do |t|
+    t.text     "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "treadlings", force: true do |t|
+    t.text     "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_foreign_key "drafts", "threadings", name: "drafts_threading_id_fk"
+  add_foreign_key "drafts", "tieups", name: "drafts_tieup_id_fk"
+  add_foreign_key "drafts", "treadlings", name: "drafts_treadling_id_fk"
 
 end

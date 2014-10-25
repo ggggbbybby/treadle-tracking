@@ -1,0 +1,7 @@
+%p
+	#{@threadings.size} Threadings
+.new-tieup-form
+	= form_for :threading, :url => {:controller => 'threadings', :action => 'create'} do |f|
+		= f.label :sequence
+		= f.text_field :sequence
+		= f.submit

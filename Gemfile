@@ -38,3 +38,8 @@ gem 'unicorn'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'haml'
+gem 'foreigner'
+gem 'andand'
+gem 'rspec-rails', :group => [:development, :test]
+

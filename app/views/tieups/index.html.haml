@@ -1,0 +1,7 @@
+%p
+	#{@tieups.size} Tieups
+.new-tieup-form
+	= form_for :tieup, :url => {:controller => 'tieups', :action => 'create'} do |f|
+		= f.label :sequence
+		= f.text_field :sequence
+		= f.submit
