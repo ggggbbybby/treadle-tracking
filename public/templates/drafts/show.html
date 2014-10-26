@@ -1,2 +1,13 @@
-hello from show.html!
+<a href="/#/drafts">index</a>
 <h1> {{draft.draft_name}} </h1>
+
+<p> Treadling: {{ draft.treadling.sequence }} </p>
+<p> Threading: {{ draft.threading.sequence }} </p>
+<p> Tie Up: {{ draft.tieup.sequence}} </p>
+
+<div class="showthreading" ng-repeat="thread in draft.threading.sequence">  
+	<!-- show a "X" if thread == $index and a "." otherwise -->
+	<pre>
+		{{ view_threading_row(draft.shafts, thread) }} 
+	</pre>
+</div>

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141022233743) do
 
   create_table "drafts", force: true do |t|
     t.string   "draft_name"
+    t.integer  "shafts"
     t.integer  "threading_id"
     t.integer  "treadling_id"
     t.integer  "tieup_id"
