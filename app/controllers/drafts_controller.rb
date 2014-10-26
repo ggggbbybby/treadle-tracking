@@ -19,9 +19,6 @@ class DraftsController < ApplicationController
 
 	def show
 		@draft = Draft.find(params[:id])
-		respond_to do |format|
-			format.json { render json: @draft }
-		end
 	end
 
 

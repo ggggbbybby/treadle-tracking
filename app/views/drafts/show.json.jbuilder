@@ -1,5 +1,7 @@
 json.draft do 
-  json.id @draft.id
-  json.draft_name, @draft.draft_name
-  json.url draft_url(@draft, format: :json)
+	json.extract! @draft, :id, :draft_name
+  	json.url draft_url(@draft, format: :json)
+  	json.tieup do 
+  		json.extract! @draft.andand.tieup, :id, :sequence
+  	end
 end
