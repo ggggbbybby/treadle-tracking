@@ -1,4 +1,4 @@
-main.js(function() {
+(function() {
   this.draft_preview = angular.module('draftPreview', ['ngRoute', 'ngResource']);
 
   this.draft_preview.config([
