@@ -4,10 +4,13 @@
   $routeProvider.
   when('/drafts', {
   	templateUrl: '../templates/drafts/index.html',
-  	controller: 'DraftController'
+  	controller: 'DraftIndexController'
+  }).
+  when('/drafts/:id', {
+    templateUrl: '../templates/drafts/show.html',
+    controller: 'DraftShowController'
   }).
     otherwise({
-      templateUrl: '../templates/home.html',
-      controller: 'DraftController'
+      templateUrl: '../templates/home.html'
     }) 
 ])
