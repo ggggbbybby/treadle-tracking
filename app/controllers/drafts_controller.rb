@@ -13,7 +13,6 @@ class DraftsController < ApplicationController
 
 	def create
 		draft_params = params.require(:draft).permit(:draft_name, :tieup_id, :threading_id, :treadling_id)
-		logger.debug("creating draft from params #{draft_params.inspect}")
 		draft = Draft.create!(draft_params)
 		redirect_to draft_url(draft)
 	end
