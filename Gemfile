@@ -43,3 +43,6 @@ gem 'foreigner'
 gem 'andand'
 gem 'rspec-rails', :group => [:development, :test]
 
+
+gem 'rails_12factor', group: :production
+
