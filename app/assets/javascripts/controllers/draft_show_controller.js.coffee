@@ -14,18 +14,18 @@
 
 	$scope.view_threading_row = (shafts, thread, repeats=1) -> 
 		result = ''
-		(result += (if thread%shafts == shaft%shafts then 'X' else '.')) for shaft in [shafts*repeats .. 1]
+		(result += (if thread%shafts == shaft%shafts then (if shaft%shafts == 0 then shafts else shaft%shafts) else '\u00A0')) for shaft in [shafts*repeats .. 1]
 		return result
 
 	$scope.view_tieup_row = (treadle_count, tie) -> 
 		result = ''
 		(result += (if treadle_index in tie.
-			treadles then 'X' else '.')) for treadle_index in [1 .. treadle_count]
+			treadles then 'O' else '\u00A0')) for treadle_index in [1 .. treadle_count]
 		return result
 
 	$scope.view_treadling_row = (treadles, stomp) -> 
 		result = ''
-		(result += (if stomp == treadle then 'X' else '.')) for treadle in [1 .. treadles]
+		(result += (if stomp == treadle then '1' else '\u00A0')) for treadle in [1 .. treadles]
 		return result
 
 	$scope.view_drawdown_row = (stomp, draft, repeats) -> 
@@ -36,7 +36,7 @@
 		shafts_lifted = ties_lifted.map (tie) -> 
 			tie.shaft%draft.shafts
 
-		(result += (if thread%draft.shafts in shafts_lifted then '|' else '-') for thread in [draft.threading.sequence.length*repeats .. 1] )
+		(result += (if thread%draft.shafts in shafts_lifted then '|' else '—') for thread in [draft.threading.sequence.length*repeats .. 1] )
 		return result
 
 
