@@ -7,7 +7,7 @@
 	)
 
 	$scope.threading_repeats = 10
-	$scope.treadling_repeats = 10
+	$scope.treadling_repeats = 5
 
 	$scope.range = (length) ->
 		return [1..length]
