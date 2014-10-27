@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="threading-rows">
-		<div class="threading-row" ng-repeat="thread in draft.threading.sequence">
+		<div class="threading-row" ng-repeat="thread in draft.threading.sequence | orderBy:'+':true">
 			{{ view_threading_row(draft.shafts, thread, threading_repeats) }} 
 		</div>
 	</div>
