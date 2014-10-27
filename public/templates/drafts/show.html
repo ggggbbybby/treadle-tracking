@@ -5,9 +5,61 @@
 <p> Threading: {{ draft.threading.sequence }} </p>
 <p> Tie Up: {{ draft.tieup.sequence}} </p>
 
-<div class="showthreading" ng-repeat="thread in draft.threading.sequence">  
-	<!-- show a "X" if thread == $index and a "." otherwise -->
-	<pre>
-		{{ view_threading_row(draft.shafts, thread) }} 
-	</pre>
+<div class="container repeat-forms">
+	<form name="repeats_form">
+		<div> 
+			<label for="threading_repeats"> Threading Repeats </label> 
+			<input type="text" name="threading_repeats" ng-model="threading_repeats" ng-pattern = "/^[1-9]\d*$/" required />
+			<span ng-show="repeats_form.threading_repeats.$error.pattern"> Must be a positive integer</span>
+		</div>
+		<div>
+			<label for="treadling_repeats"> Treadling Repeats: </label>
+			<input type="text" name="treadling_repeats" ng-model="treadling_repeats" ng-pattern = "/^[1-9]\d*$/" required />
+			<span ng-show="repeats_form.treadling_repeats.$error.pattern"> Must be a positive integer</span>
+		</div>
+	</form> 
 </div>
+
+<div class="container threading-and-tieup">  
+	<div class="shaft-numbers"> 
+		<div class="shaft-number" ng-repeat="thread in draft.threading.sequence">
+			{{ $index + 1 }}
+		</div>
+	</div>
+
+	<div class="threading-rows">
+		<div class="threading-row" ng-repeat="thread in draft.threading.sequence">
+			{{ view_threading_row(draft.shafts, thread, threading_repeats) }} 
+		</div>
+	</div>
+
+	<div class="tieup-rows">
+		<div class="tieup-row" ng-repeat="tie in draft.tieup.sequence | orderBy:'shaft':true">
+			{{ view_tieup_row(draft.treadles, tie) }}
+		</div>
+	</div>
+</div>
+
+<div class="container drawdown-and-treadling">
+	<div class="row-numbers">
+		<div class="row-number" ng-repeat="row in range(treadling_repeats*draft.treadling.sequence.length)">
+			{{ $index + 1 }} 
+		</div>
+	</div>
+
+	<div class="drawdown-rows">
+		<div class="drawdown-repeat" ng-repeat="repeat in range(treadling_repeats)">
+			<div class="drawdown-row" ng-repeat="stomp in draft.treadling.sequence">
+				{{ view_drawdown_row(stomp, draft, threading_repeats) }} 
+			</div>
+		</div>
+	</div>
+
+	<div class="treadling-rows">
+		<div class="treadling-repeat" ng-repeat="repeat in range(treadling_repeats)">
+			<div class="treadling-row" ng-repeat="stomp in draft.treadling.sequence">
+				{{ view_treadling_row(draft.treadles, stomp) }}
+			</div>
+		</div>
+	</div>
+</div> 

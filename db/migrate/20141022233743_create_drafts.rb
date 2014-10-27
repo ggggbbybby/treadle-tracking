@@ -19,7 +19,6 @@ class CreateDrafts < ActiveRecord::Migration
 
     create_table :drafts do |t|
     	t.string :draft_name
-      t.integer :shafts
 
     	t.integer :threading_id
     	t.integer :treadling_id

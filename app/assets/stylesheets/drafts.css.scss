@@ -1,0 +1,26 @@
+.threading-and-tieup, .drawdown-and-treadling { 
+	clear: both;
+
+	.shaft-numbers, .row-numbers, .threading-rows, .tieup-rows, .treadling-rows, .drawdown-rows { 
+		border: 1px solid #000;
+		border-left: 0px;
+		border-bottom: 0px;
+		font-family: monospace;
+		float: left;
+	}
+
+	.shaft-numbers, .row-numbers { 
+		border-left: 1px solid #000;
+		display:none;
+	}
+
+	.treadling-rows, .drawdown-rows {
+		border-bottom: 1px solid #000;
+	}
+
+	.treadling-repeat { 
+		display: block;
+	}
+}
+
+
