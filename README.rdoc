@@ -1,1 +1,14 @@
-ogle it at https://treadle-tracker.herokuapp.com/#/drafts/1
+Take a look! https://treadle-tracker.herokuapp.com/#/drafts/1
+
+TreadleTracker is attempting to fill an empty space in the handweaving world -- we don't have a (modern) online database for drafts. I'd much rather spend my time weaving than sorting through a pile of magazines, or flicking through the thousands of repeats on pintrest when I'm just looking for one particular 8shaft twill. 
+
+The only other site I know that fills a similar void is handweaving.net, which is extensive, but a pain to use. I want something closer to the ravelry pattern search -- categories, tags and lots of pretty pictures to help me (and other weavers) find what I want. 
+
+Goals:
+ * Display a weaving draft in a browser -- I want this to be responsive and totally system agnostic, so I can pull it up on my tablet wherever I am, or on a 30" monitor, or any other conceiveable screen.
+ * Track treadling in a web-app. There's a lot of other software that does this, but it's all standalone-app stuff and is generally aimed at people that want to design their own drafts. I don't want to replicate that, just to display and interact with an existing draft.
+ * WIF integration. Luckily, weaving drafts have a standard filetype, and you can download WIFs for pretty much every draft imagineable. (Handweaving.net has a very impressive library!) This will allow me to interact with all the existing weaving apps out there, and it gives me a standard representation for drafts in general. 
+ * Search. Once the database is populated, I want to be able to ask it for a draft, filtered by name, source, shafts, threading width, category tags, complexity, ... I'm using Ravelry's genius search as a model for this.
+
+Progress: 
+ * The first iteration of the in-browser draft displayer is built -- it uses angularjs to build and render the draft, and will be dynamically editable as soon as I make the draft details editable. 
