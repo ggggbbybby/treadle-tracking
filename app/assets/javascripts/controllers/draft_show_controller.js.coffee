@@ -15,7 +15,6 @@
 	$scope.view_threading_row = (threading, shaft, repeats=1) -> 
 		result = ''
 		threading_width = threading.length * repeats
-		#(console.log [shaft, thread, threading[(thread % threading.length)]) for thread in [threading_width .. 1]
 		(result += (if shaft == parseInt(threading[(thread % threading.length)]) then shaft else '\u00A0')) for thread in [threading_width-1 .. 0]
 		return result
 
@@ -26,8 +25,9 @@
 		return result
 
 	$scope.view_treadling_row = (treadles, stomp) -> 
+		console.log stomp
 		result = ''
-		(result += (if stomp == treadle then '1' else '\u00A0')) for treadle in [1 .. treadles]
+		(result += (if parseInt(stomp) == treadle then '1' else '\u00A0')) for treadle in [1 .. treadles]
 		return result
 
 	$scope.view_drawdown_row = (stomp, draft, repeats) -> 

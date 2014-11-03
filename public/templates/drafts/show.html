@@ -51,12 +51,6 @@
 </div>
 
 <div class="container drawdown-and-treadling">
-	<div class="row-numbers">
-		<div class="row-number" ng-repeat="row in range(treadling_repeats*draft.treadling.sequence.length)">
-			{{ $index + 1 }} 
-		</div>
-	</div>
-
 	<div class="drawdown-rows">
 		<div class="drawdown-repeat" ng-repeat="repeat in range(treadling_repeats)">
 			<div class="drawdown-row" ng-repeat="stomp in draft.treadling.sequence track by $index">
