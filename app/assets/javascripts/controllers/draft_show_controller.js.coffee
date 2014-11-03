@@ -25,7 +25,6 @@
 		return result
 
 	$scope.view_treadling_row = (treadles, stomp) -> 
-		console.log stomp
 		result = ''
 		(result += (if parseInt(stomp) == treadle then '1' else '\u00A0')) for treadle in [1 .. treadles]
 		return result
@@ -33,12 +32,14 @@
 	$scope.view_drawdown_row = (stomp, draft, repeats) -> 
 
 		result = ''
+		stomp = parseInt(stomp)
+		threading= draft.threading.sequence
 		ties_lifted = draft.tieup.sequence.filter (tie) ->
 			stomp in tie.treadles
 		shafts_lifted = ties_lifted.map (tie) -> 
-			tie.shaft%draft.shafts
+			tie.shaft
 
-		(result += (if thread%draft.shafts in shafts_lifted then '|' else '—') for thread in [draft.threading.sequence.length*repeats .. 1] )
+		(result += (if parseInt(threading[thread%threading.length]) in shafts_lifted then '\u220E' else '\u00A0') for thread in [threading.length*repeats-1 .. 0] )
 		return result
 
 

@@ -17,8 +17,7 @@
 	<input type="text" ng-model="draft.threading.sequence" ng-list="," />
 </p>
 <p> 
-	Tie Up: 
-	<input type="text" ng-model="draft.tieup.sequence" ng-list=","/> 
+	Tie Up: {{draft.tieup.sequence}}
 </p>
 
 <div class="container repeat-forms">
@@ -53,8 +52,8 @@
 <div class="container drawdown-and-treadling">
 	<div class="drawdown-rows">
 		<div class="drawdown-repeat" ng-repeat="repeat in range(treadling_repeats)">
-			<div class="drawdown-row" ng-repeat="stomp in draft.treadling.sequence track by $index">
-				{{ view_drawdown_row(stomp, draft, threading_repeats) }} 
+			<div class="drawdown-row" ng-repeat="stomp in draft.treadling.sequence track by $index" >
+				{{ view_drawdown_row(stomp, draft, threading_repeats) }}
 			</div>
 		</div>
 	</div>
