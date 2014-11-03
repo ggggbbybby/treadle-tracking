@@ -6,15 +6,17 @@
 		$
 	)
 
-	$scope.threading_repeats = 10
+	$scope.threading_repeats = 1
 	$scope.treadling_repeats = 5
 
 	$scope.range = (length) ->
 		return [1..length]
 
-	$scope.view_threading_row = (shafts, thread, repeats=1) -> 
+	$scope.view_threading_row = (threading, shaft, repeats=1) -> 
 		result = ''
-		(result += (if thread%shafts == shaft%shafts then (if shaft%shafts == 0 then shafts else shaft%shafts) else '\u00A0')) for shaft in [shafts*repeats .. 1]
+		threading_width = threading.length * repeats
+		#(console.log [shaft, thread, threading[(thread % threading.length)]) for thread in [threading_width .. 1]
+		(result += (if shaft == parseInt(threading[(thread % threading.length)]) then shaft else '\u00A0')) for thread in [threading_width-1 .. 0]
 		return result
 
 	$scope.view_tieup_row = (treadle_count, tie) -> 

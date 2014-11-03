@@ -9,9 +9,17 @@
 </h4>
 
 
-<p> Treadling: {{ draft.treadling.sequence }} </p>
-<p> Threading: {{ draft.threading.sequence }} </p>
-<p> Tie Up: {{ draft.tieup.sequence}} </p>
+<p> Treadling: 
+	<input type="text" ng-model="draft.treadling.sequence" ng-list=","/>
+</p>
+<p> 
+	Threading:
+	<input type="text" ng-model="draft.threading.sequence" ng-list="," />
+</p>
+<p> 
+	Tie Up: 
+	<input type="text" ng-model="draft.tieup.sequence" ng-list=","/> 
+</p>
 
 <div class="container repeat-forms">
 	<form name="repeats_form">
@@ -29,15 +37,9 @@
 </div>
 
 <div class="container threading-and-tieup">  
-	<div class="shaft-numbers"> 
-		<div class="shaft-number" ng-repeat="thread in draft.threading.sequence">
-			{{ $index + 1 }}
-		</div>
-	</div>
-
 	<div class="threading-rows">
-		<div class="threading-row" ng-repeat="thread in draft.threading.sequence | orderBy:'+':true">
-			{{ view_threading_row(draft.shafts, thread, threading_repeats) }} 
+		<div class="threading-row" ng-repeat="shaft in range(draft.shafts) | orderBy:'+':true">
+			{{ view_threading_row(draft.threading.sequence, shaft, threading_repeats) }} 
 		</div>
 	</div>
 
@@ -57,7 +59,7 @@
 
 	<div class="drawdown-rows">
 		<div class="drawdown-repeat" ng-repeat="repeat in range(treadling_repeats)">
-			<div class="drawdown-row" ng-repeat="stomp in draft.treadling.sequence">
+			<div class="drawdown-row" ng-repeat="stomp in draft.treadling.sequence track by $index">
 				{{ view_drawdown_row(stomp, draft, threading_repeats) }} 
 			</div>
 		</div>
@@ -65,7 +67,7 @@
 
 	<div class="treadling-rows">
 		<div class="treadling-repeat" ng-repeat="repeat in range(treadling_repeats)">
-			<div class="treadling-row" ng-repeat="stomp in draft.treadling.sequence">
+			<div class="treadling-row" ng-repeat="stomp in draft.treadling.sequence track by $index">
 				{{ view_treadling_row(draft.treadles, stomp) }}
 			</div>
 		</div>
